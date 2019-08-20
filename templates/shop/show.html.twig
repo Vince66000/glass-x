@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title artwork.nom %}
+
+
+
+
+{% block body %}
+    <div class="container">
+        <div class="card">
+            <h1>{{ artwork.nom }}</h1>
+            <h2>Type : {{ artwork.TypeType }}</h2>
+            <h5>Dimensions : {{ artwork.longueur }} Long x {{ artwork.largeur }} Larg cm</h5>
+            <h9>Ajouté le {{ artwork.createdAt | date('d/m/Y') }}</h9>
+        </div>
+
+    </div>
+
+
+{%  endblock %}
+
+

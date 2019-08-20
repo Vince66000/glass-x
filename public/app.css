@@ -1,0 +1,27 @@
+#menu, .navbar-brand {
+    font-size: 30px;
+}
+body {
+    font-family: Bahnschrift;
+    background-color: lightsteelblue;
+}
+
+.card {
+    font-family: Bahnschrift;
+    margin-top: 10px;
+    margin-left: 100px;
+    margin-right: 100px;
+    text-align: center;
+    opacity: initial;
+    background-color: lightsteelblue;
+}
+
+#carousel {
+    margin-top: 10px;
+    width:auto;
+    height: auto;
+
+}
+
+
+

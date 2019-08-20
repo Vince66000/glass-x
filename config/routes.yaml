@@ -1,0 +1,12 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+home:
+  path: /
+  controller: App\Controller\HomeController::index
+
+
+#shop:
+ # path: /shop
+  #controller: App\Controller\ArtworkController::index

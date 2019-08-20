@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="jumbotron">
+        <h1>SHOP TA MAMAN</h1>
+
+    </div>
+    <div class="container">
+
+    <div class="row flex">
+        {% for artwork in artworks %}
+              <div class="col-12">
+                  <div class="card">
+                      <div class="card-body">
+                              <h5 class="card-title">
+                                  <a href="{{ path('shop.show', {id:artwork.id, slug: artwork.slug})}}">{{ artwork.nom }}</a>
+                              </h5>
+                              <p class="card-text">
+                                  {{ artwork.description }} </br>
+                                  {{ artwork.longueur }} cm x {{ artwork.largeur }} cm
+                              </p>
+                          <div class="text-primary">{{ artwork.prix }} €</div>
+
+                      </div>
+                  </div>
+              </div>      
+        {%  endfor %}
+    </div>
+
+    </div>
+
+{% endblock %}
