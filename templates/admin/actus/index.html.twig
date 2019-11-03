@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Gérer le shop (ta maman)' %}
+
+{% block body %}
+
+    <div class="jumbotron">
+        <h1>Gérer les actualités</h1>
+    </div>
+    <div class="container mt-4">
+
+        <div class="text-right">
+            <a href="{{ path('admin.actus.new') }}" class="btn btn-primary btn-lg">Ajouter </a>
+
+        </div>
+        {% for message in app.flashes('success') %}
+
+            <div class="atert alert-success">
+                {{ message }}
+            </div>
+
+        {% endfor %}
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Date début</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+
+
+            {% for actu in actus %}
+                <tr>
+                    <td>{{ actu.nom }}</td>
+                    <td>{{ actu.dateDebut |date('d/m/Y') }}</td>
+                    <td>
+                        <a href="{{ path('admin.actus.edit', {id: actu.id}) }}" class="btn btn-secondary">Editer</a>
+                        <form method="post" action="{{ path('admin.actus.delete', {id: actu.id}) }}" style="display: inline-block"
+                        onsubmit="return confirm('Êtes-vous sur de vouloir supprimer cette toile?')">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ actu.id) }}">
+                            <button class="btn btn-danger">Supprimer</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+
+
+    </div>
+
+
+
+
+{% endblock %}

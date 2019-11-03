@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+
+    <div class="container" >
+        <div  class="row flex" >
+            <div class="col ml-4 mt-4" >
+                <div id="test" class="card" >
+                    <div class="card-header">
+                        <h5 style="text-align: center">{{ actu.nom }}</h5>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>Lieu : </strong>{{ actu.nomLieu }}</p>
+                        <p><strong></strong>{{ actu.adresse }}</p>
+                        <p><strong></strong>{{ actu.codePostal }}</p>
+                        <p><strong></strong>{{ actu.ville }}</p>
+                        <p><strong>Date début : </strong>{{ actu.dateDebut | date('d/m/Y') }}</p>
+                        <p><strong>Date de fin : </strong>{{ actu.dateFin | date('d/m/Y') }}</p>
+                    </div>
+                    {% if  actu.dateFin > 'now'  %}
+
+                        <p class="alert-danger" style="text-align: center"> Terminé!!</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

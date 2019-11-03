@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Gérer le shop' %}
+
+{% block body %}
+
+    <div class="jumbotron">
+        <h1>Gérer le shop</h1>
+    </div>
+    <div class="container mt-4">
+
+        <div class="text-right">
+            <a href="{{ path('admin.artworks.new') }}" class="btn btn-primary btn-lg">Ajouter </a>
+
+        </div>
+        {% for message in app.flashes('success') %}
+
+            <div class="atert alert-success">
+                {{ message }}
+            </div>
+
+        {% endfor %}
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Prix</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+
+
+            {% for artwork in artworks %}
+                <tr>
+                    <td>{{ artwork.nom }}</td>
+                    <td>{{ artwork.prix }}</td>
+                    <td>
+                        <a href="{{ path('admin.artworks.edit', {id: artwork.id}) }}" class="btn btn-secondary">Editer</a>
+                        <form method="post" action="{{ path('admin.artworks.delete', {id: artwork.id}) }}" style="display: inline-block"
+                        onsubmit="return confirm('Êtes-vous sur de vouloir supprimer cette toile?')">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ artwork.id) }}">
+                            <button class="btn btn-danger">Supprimer</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+
+
+    </div>
+
+
+
+
+{% endblock %}

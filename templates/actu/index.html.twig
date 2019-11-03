@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+    <div class="jumbotron" id="tamer">
+        <h1 style="text-align: center">Actualités</h1>
+    </div>
+
+    <div class="row flex" style="width: 100%; margin: auto" >
+        {% for actu in actus %}
+            <div class="card" style="width: 30%">
+                <div class="card-header" style="text-align: center">
+                    <a href="{{ path('actu.show', {id: actu.id, slug: actu.slug} )}}" style="text-decoration: none; color: black">{{ actu.nom }}</a>
+                </div>
+                <img src="poisson.jpg" class="card-img-top" alt="..." >
+                <div class="card-body" id="miniature">
+
+                    <p><strong>Lieu : </strong>{{ actu.nomLieu }}</p>
+                    <p><strong>Du : </strong>{{ actu.dateDebut | date('d/m/Y') }}</p>
+                    <p><strong>Au : </strong>{{ actu.dateFin | date('d/m/Y') }}</p>
+
+                </div>
+            </div>
+        {%  endfor %}
+    </div>
+
+
+{% endblock %}

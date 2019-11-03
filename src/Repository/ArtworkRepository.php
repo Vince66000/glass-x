@@ -24,7 +24,7 @@ class ArtworkRepository extends ServiceEntityRepository
     //  * @return ArtworkController[] Returns an array of ArtworkController objects
     //  */
 
-    public function findByExampleField($value)
+    public function findByExampleField($value): Query
     {
         return $this->createQueryBuilder('a')
             ->andWhere('a.exampleField = :val')
@@ -35,8 +35,6 @@ class ArtworkRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
-
-
 
     public function findOneBySomeField($value): ?ArtworkController
     {

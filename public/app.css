@@ -1,27 +1,81 @@
+
+@font-face {
+    font-family: test;
+    src: url("po-po-polices/woodcutter.ttf");
+}
+
 #menu, .navbar-brand {
     font-size: 30px;
 }
 body {
-    font-family: Bahnschrift;
-    background-color: lightsteelblue;
+    font-family: test;
+    background-color: whitesmoke;
 }
 
 .card {
-    font-family: Bahnschrift;
+    font-family:Bahnschrift;
     margin-top: 10px;
-    margin-left: 100px;
-    margin-right: 100px;
-    text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: left;
     opacity: initial;
-    background-color: lightsteelblue;
+    background-color: ghostwhite;
 }
 
-#carousel {
-    margin-top: 10px;
-    width:auto;
+.carousel-inner img {
+    margin: auto;
+}
+
+#tamer {
+    width: auto;
+    background-image: url("fond2.jpg") ;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: whitesmoke;
+}
+
+#miniature {
+
     height: auto;
+    width: 100%;
+}
+
+.miniature {
+    width: 380px;
+    height: 550px;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: inline-block;
+    position: relative;
 
 }
 
+span {
+    position: absolute;
+    top:25px;
+    left: 25px;
+    display: none;
+}
 
+.miniature:hover span {
+    display: block;
+}
+
+span.titre {
+    top:20px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+span.description {
+    top: 50px;
+    color: white;
+    font-size: 0.9em;
+
+}
+
+span.bg {
+    top:0; left:0; height: 100%; width: 100%; background: black;
+}
 

@@ -1,0 +1,41 @@
+{{ form_start(form) }}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="row">
+                <div class="col-md-4">{{ form_row(form.nom) }}</div>
+                <div class="col-md-8">{{ form_row(form.nomLieu) }}</div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="row flex justify-content-start flex-wrap">
+                {#   {% for picture in property.pictures %}
+                       <div class="col" style="width: 100px; flex: none; margin: 5px;">
+                           <img src="{{ vich_uploader_asset(picture, 'imageFile') | imagine_filter('thumb') }}" width="100" alt="image">
+                           <a href="{{ path('admin.picture.delete', {id: picture.id}) }}" class="btn btn-danger" data-delete
+                              data-token="{{ csrf_token('delete' ~ picture.id) }}">Supprimer</a>
+                       </div>
+                   {% endfor %}#}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">{{ form_row(form.adresse) }}</div>
+        <div class="col-md-2">{{ form_row(form.codePostal) }}</div>
+        <div class="col-md-2">{{ form_row(form.ville) }}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">{{ form_row(form.lat) }}</div>
+        <div class="col-md-2">{{ form_row(form.lng) }}</div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-4">{{ form_row(form.dateDebut) }}</div>
+        <div class="col-md-4">{{ form_row(form.dateFin) }}</div>
+    </div>
+</div>
+{{ form_rest(form) }}
+<button class="btn btn-primary">{{ button |default('Enregistrer') }}</button>
+{{ form_end(form) }}

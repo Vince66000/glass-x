@@ -7,6 +7,3 @@ home:
   controller: App\Controller\HomeController::index
 
 
-#shop:
- # path: /shop
-  #controller: App\Controller\ArtworkController::index

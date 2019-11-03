@@ -1,22 +1,42 @@
 {% extends 'base.html.twig' %}
 
+
+
 {% block title artwork.nom %}
 
 
-
-
 {% block body %}
-    <div class="container">
-        <div class="card">
-            <h1>{{ artwork.nom }}</h1>
-            <h2>Type : {{ artwork.TypeType }}</h2>
-            <h5>Dimensions : {{ artwork.longueur }} Long x {{ artwork.largeur }} Larg cm</h5>
-            <h9>Ajouté le {{ artwork.createdAt | date('d/m/Y') }}</h9>
+
+    <div class="container" >
+        <div  class="row flex" >
+            <div class="col ml-4 mt-4" >
+                <div id="test" class="card" >
+                    <div class="card-header">
+                        <h5 style="text-align: center">{{ artwork.nom }}</h5>
+                    </div>
+                    <p><strong>Type :</strong> {{ artwork.TypeType  }}</p>
+                    <p>{{ artwork.description   }} </p>
+                    <p><strong>Dimensions : </strong>  {{ artwork.longueur }} x {{ artwork.largeur }} cm
+                    </p>
+                    {% if artwork.disponibilite == 1 %}
+                        <h3 class="alert alert-success" >Disponible</h3>
+                        <input type="button" value="Me contacter" class="btn btn-primary">
+
+                    {% else %}
+                        <h7 style="color:red">Vendu!</h7>
+                        <h9>Ajouté le {{ artwork.createdAt | date('d/m/Y') }}</h9>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col mr-4 mt-4" >
+                <img class="rounded float-left" src="{{ vich_uploader_asset(artwork, 'imageFile') }}" alt="card-img-top">
+            </div>
+
+
         </div>
 
     </div>
 
-
-{%  endblock %}
+{% endblock %}
 
 

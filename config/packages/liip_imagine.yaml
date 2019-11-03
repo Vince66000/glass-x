@@ -1,0 +1,22 @@
+liip_imagine:
+    filter_sets:
+
+        thumb:
+            quality: 100
+            filters:
+
+                downscale:
+
+                    max: [400,400]
+
+                    allow_upscale: false
+#        medium:
+#            quality: 75
+#            filters:
+#                thumbnail:
+#                    size: [800,530]
+#                    mode: inset
+#        mini:
+#            filters:
+#                downscale:
+#                    max: [800,800]
